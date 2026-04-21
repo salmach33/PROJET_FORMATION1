@@ -32,7 +32,7 @@ jobs:
 
       - name: Run application
         run: docker compose up -d
-        
-      # 7. Vérifier que les conteneurs tournent
+
+      
       - name: Check containers
         run: docker ps
