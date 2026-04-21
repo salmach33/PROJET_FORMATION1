@@ -30,10 +30,9 @@ jobs:
       - name: Run simple test
         run: echo "Tests OK 👍"
 
-      # 6. Lancer docker-compose
       - name: Run application
-        run: docker-compose up -d
-
+        run: docker compose up -d
+        
       # 7. Vérifier que les conteneurs tournent
       - name: Check containers
         run: docker ps
