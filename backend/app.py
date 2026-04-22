@@ -17,7 +17,9 @@ def formations():
     return jsonify([
         {"title": "Docker"},
         {"title": "React"},
-        {"title": "Flask"}
+        {"title": "Flask"},
+        {"title": "Test"},
+        {"title": "Test2"},
     ])
 
 if __name__ == "__main__":
