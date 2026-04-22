@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const [formations, setFormations] = useState([]);
@@ -15,11 +16,10 @@ function App() {
   }, []);
 
   const addFormation = () => {
+    if (!title) return;
     fetch("http://localhost:5000/formations", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title }),
     }).then(() => {
       setTitle("");
@@ -34,24 +34,26 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20 }}>
-      <h1>📚 Gestion des formations</h1>
+    <div className="container">
+      <h1>📚 Formation Manager</h1>
 
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Nouvelle formation"
-      />
-      <button onClick={addFormation}>Ajouter</button>
+      <div className="form-box">
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Ajouter une formation..."
+        />
+        <button onClick={addFormation}>Ajouter</button>
+      </div>
 
-      <ul>
+      <div className="cards">
         {formations.map((f) => (
-          <li key={f._id}>
-            {f.title}
-            <button onClick={() => deleteFormation(f._id)}>❌</button>
-          </li>
+          <div className="card" key={f._id}>
+            <span>{f.title}</span>
+            <button onClick={() => deleteFormation(f._id)}>🗑</button>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
