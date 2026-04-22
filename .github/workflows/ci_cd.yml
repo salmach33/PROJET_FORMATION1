@@ -26,13 +26,12 @@ jobs:
       - name: Build Frontend Image
         run: docker build -t frontend ./frontend
 
-      # 5. Test simple (optionnel)
+
       - name: Run simple test
         run: echo "Tests OK 👍"
 
       - name: Run application
-        run: docker compose up -d
+        run: docker compose up -d --build
 
-      
       - name: Check containers
         run: docker ps
