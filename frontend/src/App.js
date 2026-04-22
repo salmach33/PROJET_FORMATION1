@@ -1,60 +1,21 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import Formations from "./Formations";
 
 function App() {
-  const [formations, setFormations] = useState([]);
-  const [title, setTitle] = useState("");
-
-  const fetchData = () => {
-    fetch("http://localhost:5000/formations")
-      .then(res => res.json())
-      .then(data => setFormations(data));
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const addFormation = () => {
-    if (!title) return;
-    fetch("http://localhost:5000/formations", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title }),
-    }).then(() => {
-      setTitle("");
-      fetchData();
-    });
-  };
-
-  const deleteFormation = (id) => {
-    fetch(`http://localhost:5000/formations/${id}`, {
-      method: "DELETE",
-    }).then(() => fetchData());
-  };
-
   return (
-    <div className="container">
-      <h1>📚 Formation Manager</h1>
+    <Router>
+      <nav style={{ padding: 10, background: "#333" }}>
+        <Link to="/" style={{ color: "white", marginRight: 10 }}>Accueil</Link>
+        <Link to="/formations" style={{ color: "white" }}>Formations</Link>
+      </nav>
 
-      <div className="form-box">
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Ajouter une formation..."
-        />
-        <button onClick={addFormation}>Ajouter</button>
-      </div>
-
-      <div className="cards">
-        {formations.map((f) => (
-          <div className="card" key={f._id}>
-            <span>{f.title}</span>
-            <button onClick={() => deleteFormation(f._id)}>🗑</button>
-          </div>
-        ))}
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/formations" element={<Formations />} />
+      </Routes>
+    </Router>
   );
 }
 
