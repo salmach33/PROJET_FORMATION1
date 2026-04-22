@@ -19,7 +19,7 @@ def formations():
         {"title": "React"},
         {"title": "Flask"},
         {"title": "Test"},
-        {"title": "Test2"},
+        {"title": "Testtttt"},
     ])
 
 if __name__ == "__main__":
