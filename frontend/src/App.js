@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <h1>Liste des formations</h1>
+      <h1>Liste des formations test</h1>
       <ul>
         {formations.map((f, index) => (
           <li key={index}>{f.title}</li>
