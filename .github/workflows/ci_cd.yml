@@ -28,7 +28,7 @@ jobs:
 
 
       - name: Run simple test
-        run: echo "Tests OK 👍"
+        run: echo "Tests OK "
 
       - name: Run application
         run: docker compose up -d --build

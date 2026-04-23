@@ -1,18 +1,28 @@
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
+  font-family: Arial;
   background: #f5f6fa;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #2f3542;
+  color: white;
 }
 
-h1 {
-  text-align: center;
-  color: #333;
+.navbar a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+/* CONTENT */
+.container {
+  padding: 20px;
 }
 
 .form-box {
@@ -24,21 +34,13 @@ h1 {
 input {
   flex: 1;
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
 }
 
 button {
-  padding: 10px 15px;
+  padding: 10px;
   border: none;
-  border-radius: 8px;
-  background: #4CAF50;
-  color: white;
   cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
+  border-radius: 5px;
 }
 
 .cards {
@@ -53,10 +55,5 @@ button:hover {
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.card button {
-  background: red;
 }
