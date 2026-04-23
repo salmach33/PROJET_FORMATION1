@@ -10,22 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Télécharger le code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 2. Vérifier Docker
       - name: Check Docker version
         run: docker --version
 
-      # 3. Build backend
       - name: Build Backend Image
         run: docker build -t backend ./backend
 
-      # 4. Build frontend
       - name: Build Frontend Image
         run: docker build -t frontend ./frontend
-
 
       - name: Run simple test
         run: echo "Tests OK "
